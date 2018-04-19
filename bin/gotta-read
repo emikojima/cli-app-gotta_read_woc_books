@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './lib/gotta_read_woc_books'
+
+GottaReadWocBooks::CLI.new.call
