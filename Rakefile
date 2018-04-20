@@ -1,2 +1,7 @@
 require "bundler/gem_tasks"
-task :default => :spec
+require_relative './config/environment'
+# task :default => :spec
+
+task :console do
+  Pry.start
+end
