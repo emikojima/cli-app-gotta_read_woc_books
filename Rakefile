@@ -1,7 +1,8 @@
 require "bundler/gem_tasks"
 require_relative './config/environment'
-# task :default => :spec
+RSpec::Core::RakeTask.new(:spec)
+task :default => :spec
 
-task :console do
-  Pry.start
-end
+# task :console do
+#   Pry.start
+# end
