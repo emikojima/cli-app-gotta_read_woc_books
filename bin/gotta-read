@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/gotta_read_woc_books'
+require_relative '../config/environment'
 
-GottaReadWocBooks::CLI.new.call
+Cli.new.call

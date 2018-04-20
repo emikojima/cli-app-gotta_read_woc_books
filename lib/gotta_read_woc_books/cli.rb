@@ -1,4 +1,4 @@
-class GottaReadWocBooks::CLI
+class Cli
 
   def call
     puts "Welcome to the list of 46 books by women of color you've gotta read in 2018!"
@@ -9,7 +9,7 @@ class GottaReadWocBooks::CLI
 
   def list_books
     puts "Here are the books in order of release date:"
-    GottaReadWocBooks::BOOK.books
+    Book.books
     #lists books here
   end
 
