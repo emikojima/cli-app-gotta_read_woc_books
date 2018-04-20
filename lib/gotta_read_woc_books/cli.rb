@@ -9,6 +9,7 @@ class GottaReadWocBooks::CLI
 
   def list_books
     puts "Here are the books in order of release date:"
+    GottaReadWocBooks::BOOK.books
     #lists books here
   end
 
