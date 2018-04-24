@@ -3,25 +3,28 @@ class Book
 
   @@all = []
 
-  def initialize(title = nil, author = nil, month = nil, url = nil, description = nil)
+  def initialize(title = nil, author = nil, url = nil)
     @title = title
     @author = author
-    @month = month
     @url = url
-    @description = description
     @@all << self
   end
 
   def self.books
-    #returns list of titles with number
-    #call all, each_with_index  (maybe make input to index method), then list
-    puts "BOOKLIST"
+    all.each.with_index(1) {|value, index| puts "#{index}: #{value.title}"}
+
   end
 
   def self.all
     @@all
   end
 
+  def self.descriptions
+    Scraper.scrape_description.each.with_index(1) {|desc, index| "#{index}. #{desc}"}
+  end
 
+  def self.create_from_scraper
+    Scraper.scrape_author_title.each {|book| Book.new(title = book[:title], author = nil, url = book[:url])}
+  end
 
 end
