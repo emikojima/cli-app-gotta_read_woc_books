@@ -4,31 +4,40 @@ class Cli
   def call
     Book.create_from_scraper
     Book.url
-    puts "Welcome to the list of #{Book.all.length.to_i} books by women of color you've gotta read in 2018!"
-    puts " "
+    lines
+    puts "  Welcome to the list of #{Book.all.length.to_i} books by women of color you've gotta read in 2018!"
+    lines
     list_books
+    lines
     more_info
     good_bye
   end
 
+  def lines
+    puts "------------------------------------------------------------------------------------"
+  end
+
   def list_books
-    puts "Books in order of their release dates:"
+    puts "**  Books in order of their release date  **"
     Book.books
   end
 
   def more_info
     input = nil
     until input == "bye"
-      puts "Enter the number of the book you would like more information on (1-#{Book.all.length.to_i}) OR type 'list' to review the list OR type 'bye' to exit!"
+      puts "Enter the number of the book you would like more information on (1-#{Book.all.length.to_i})"
+      puts "OR type 'list' to review the list OR type 'bye' to exit!"
       input = gets.strip.downcase
       if (1..Book.all.length.to_i) === input.to_i
-        puts "Book ##{input} GREAT CHOICE! Here's more information on that book!"
+        lines
+        puts "BOOK ##{input} GREAT CHOICE! Here's more information on that book:"
         puts "BOOK TITLE AND AUTHOR: #{Book.all[input.to_i-1].title}."
         puts " "
         puts "BOOK DESCRIPTION: #{Book.all[input.to_i-1].description}"
         puts " "
         puts "BUY IT HERE: #{Book.all[input.to_i-1].url}"
-        puts " "
+        lines
+      
       elsif input == "list"
         list_books
       elsif input == "bye"
