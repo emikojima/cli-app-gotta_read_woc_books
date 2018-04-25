@@ -8,7 +8,6 @@ class Cli
     puts "  Welcome to the list of #{Book.all.length.to_i} books by women of color you've gotta read in 2018!"
     lines
     list_books
-    lines
     more_info
     good_bye
   end
@@ -19,7 +18,9 @@ class Cli
 
   def list_books
     puts "**  Books in order of their release date  **"
+    lines
     Book.books
+    lines
   end
 
   def more_info
@@ -31,13 +32,12 @@ class Cli
       if (1..Book.all.length.to_i) === input.to_i
         lines
         puts "BOOK ##{input} GREAT CHOICE! Here's more information on that book:"
-        puts "BOOK TITLE AND AUTHOR: #{Book.all[input.to_i-1].title}."
+        puts "BOOK TITLE & AUTHOR: #{Book.all[input.to_i-1].title}."
         puts " "
         puts "BOOK DESCRIPTION: #{Book.all[input.to_i-1].description}"
         puts " "
         puts "BUY IT HERE: #{Book.all[input.to_i-1].url}"
         lines
-      
       elsif input == "list"
         list_books
       elsif input == "bye"
