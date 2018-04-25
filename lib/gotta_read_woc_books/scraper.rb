@@ -8,14 +8,14 @@ class Scraper
   doc = Nokogiri::HTML(open("https://electricliterature.com/46-books-by-women-of-color-to-read-in-2018-70a0bf5bf4f2"))
     doc.css(".v-glyph--m2 .graf--h4").map do |x|
       book_hash = {
-       :title => x.css("strong").text, 
+       :title => x.css("strong").text,
        :url => x.css("a").map {|a| a.attribute("href").text}
       }
       books << book_hash unless book_hash[:title].empty? == true || books.include?(book_hash)
     end
       all_desc = doc.css(".graf--p.graf-after--h4").map do |x|
       all_desc << x.text
-    end
+      end
     final = books.each_with_index do |book, i|
       all_desc.each do |d|
         books[i][:description] = d[i]
