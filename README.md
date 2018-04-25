@@ -21,8 +21,8 @@ Or install it yourself as:
     $ gem install gotta_read_woc_books
 
 ## Usage
-
-TODO: Write usage instructions here
+To run this file run: 
+  $ bin/gotta-read
 
 ## Development
 

@@ -3,12 +3,7 @@ require 'bundler'
 Bundler.require
 
 require 'pry'
-# require 'nokogiri'
 require 'open-uri'
-
-
-
-
 
 require_relative '../lib/gotta_read_woc_books/version'
 require_relative '../lib/gotta_read_woc_books/scraper'

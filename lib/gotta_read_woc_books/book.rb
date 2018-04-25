@@ -1,12 +1,12 @@
 class Book
-  attr_accessor :title, :month, :url, :description
+  attr_accessor :title, :url, :description
 
   @@all = []
 
-  def initialize(title = nil, url = nil)
+  def initialize(title = nil, url = nil, description = nil)
     @title = title
     @url = url
-    @@all << self
+    @description = description
   end
 
   def self.books
@@ -17,12 +17,18 @@ class Book
     @@all
   end
 
-  def self.descriptions
-    Scraper.scrape_description.each.with_index(1) {|desc, index| "#{index}. #{desc}"}
+  def save
+    @@all << self
+  end
+
+  def self.create(title = nil, url = nil, description = nil)
+    book = self.new(title, url, description)
+    book.save
+    book
   end
 
   def self.create_from_scraper
-    Scraper.scrape_author_title.each {|book| Book.new(title = book[:title], url = book[:url])}
+    Scraper.scrape_from_url.each {|book| self.create(title = book[:title], url = book[:url], book[:description])}
   end
 
   def self.url
