@@ -1,4 +1,4 @@
-# GottaReadWocBooks
+# Electric Lit
 
 Welcome to 46 Books to read by WOC (woment of color) in 2018!
 This will give you a list of 46 books and supporting information.
